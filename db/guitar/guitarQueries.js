@@ -18,4 +18,17 @@ const guitarQueries = () => {
     })
 }
 
-export default guitarQueries;
+const guitarQuery = (id) => {
+    return new Promise((reject,resolve) => {
+        config.query('SELECT * FROM guitarras WHERE id = ?',[id],(err,result) => {
+            respuesta(err,result,resolve,reject);
+        })
+    })
+
+
+}
+
+export {
+     guitarQueries,
+     guitarQuery,
+}
